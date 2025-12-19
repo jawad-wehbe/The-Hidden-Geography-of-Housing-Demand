@@ -1,9 +1,9 @@
 
 # 1- Maps
 
-1_main_report_maps.R: Produces the gap per km² maps in the main paper for the selected local authorities showing OA-level housing gaps.
+1_main_report_maps.R: Produces the gap per km² maps in the main paper for the selected local authorities (LAs) showing the gap at the OA level.
 
-2_gb_map_gap_rank.R: Creates the gap per km² GB map in the main report output areas ranked by housing gap intensity.
+2_gb_map_gap_rank.R: Creates the gap per km² GB map in the main report which ranks output areas by the housing gap intensity.
 
 # 2- Descriptives
 
