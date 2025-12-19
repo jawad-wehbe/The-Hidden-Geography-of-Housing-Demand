@@ -1,7 +1,7 @@
 
 # Description
 # Event Study Setup
-1_search_by_location.py: Aggregates weekl  property search counts by location and search radius for buying and letting searches, and saves the results as Parquet files.
+1_search_by_location.py: Aggregates weekly  property search counts by location and search radius for buying and letting searches, and saves the results as Parquet files.
 
 2_location_to_oa_batch.py: Maps weekly buying and letting searches output areas, outputs weekly CSVs, and combines them into a single Parquet file.
 
@@ -11,6 +11,18 @@
 
 3_ed_shock_construction.R: Constructs another of the shock based on the plot end-date for large post-2019 housing sites,  maps sites to output areas, and exports OA-level shock data.
 
+4_search_cw.R: Assigns LSOA, MSOA, LA, and TTWA to OA-level weekly search data.
+
 4_sd_control_dataset_construction.R: Constructs the control OA–week dataset by excluding all output areas intersecting shocked MSOAs and outputs a weekly search panel for untreated OAs data.
 
 4_ed_control_dataset_construction.R: Constructs the control OA–week dataset using end-date shocks by excluding all output areas intersecting shocked MSOAs and exporting the untreated weekly OA data.
+
+# Event Study Analsis
+
+1_ed_pooled_reg_dataset_construction.R: Builds a stacked event-study regression dataset for end-date construction shocks by pairing treated OAs to the controls from 4_ed_control_dataset_construction.R within the same TTWA, and prepares the pooled event study dataset.
+
+1_sd_pooled_reg_dataset_construction.R: Builds a stacked event-study regression dataset for start-date construction shocks by pairing treated OAs with TTWA-matched controls from 4_sd_control_dataset_construction.R, and exports the pooled event-study panel dataset.
+
+2_common_sites_reg_and_plot.R: Runs the pooled event-study regression on buying searches for construction sites common to both start-date and end-date regression datasets (chosen due to computational constraints) and generates the event-study plot in the paper.
+
+
