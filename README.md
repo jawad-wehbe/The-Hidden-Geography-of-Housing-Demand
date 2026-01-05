@@ -36,7 +36,7 @@
 
 4_ed_control_dataset_construction.R: Constructs the control OA–week dataset using end-date shocks by excluding all output areas intersecting shocked MSOAs and exporting the untreated weekly OA data.
 
-# 4.2- Analsis
+# 4.2- Analysis
 
 1_ed_pooled_reg_dataset_construction.R: Builds a stacked event-study regression dataset for end-date construction shocks by pairing treated OAs to the controls from 4_ed_control_dataset_construction.R within the same TTWA, and prepares the pooled event study dataset.
 
