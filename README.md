@@ -5,6 +5,8 @@
 
 2_gb_map_gap_rank.R: Creates the GB-wide gap rank map in the main report. Saved as gap_rank_map.png.
 
+3_transactions_searches_maps.R: Maps how OA-level buying searches move around a chosen flood event (Storm Ciara, 2020) within a single local authority, plotting changes in searches per km² across event weeks with flooded OA boundaries and transactions overlaid.
+
 # 2- Descriptives
 
 1_rightmove_descriptives.py: Produces the Rightmove summary statistics table used in the main paper. Results are assembled into a single table and exported as LaTeX (summary_table.tex).
@@ -42,9 +44,4 @@ This folder contains the full event-study pipeline linking Rightmove property se
 
 9_floods_reg.R: Identifies flooded output areas using the England and Wales recorded flood outlines and the OS address base, merges with weekly searches and transactions, builds the weekly and monthly flood event-study datasets, runs the regressions, and exports estimates and figures.
 
-
 10_newly_built_reg.R: Runs the new-build event study: combines the OA greenspace measure with newly built HMLR transactions and weekly searches, builds the weekly and monthly regression datasets, runs the event-study regressions, and exports estimates and figures.
-
-11_transactions_searches_maps.R: Produces the OA-level maps of search changes around flood events (levels and winsorised log differences across event weeks), using the flood regression dataset and HMLR transactions.
-
-12_rank_rank_correlations_buying_searches.R: Computes rank-rank correlations of total OA buying searches across the four search panels (all, saved, contacted, contacted-and-saved), each produced by re-running scripts 1–2 on the corresponding sample.
