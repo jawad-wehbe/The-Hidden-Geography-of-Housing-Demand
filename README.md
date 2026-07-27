@@ -9,7 +9,7 @@
 
 1_rightmove_descriptives.py: Produces the Rightmove summary statistics table used in the main paper. Results are assembled into a single table and exported as LaTeX (summary_table.tex).
 
-**3 - Nonbots Main Analysis**
+# 3- Nonbots Main Analysis
 This folder contains the full event-study pipeline linking Rightmove property searches (non-bot sessions) to construction supply shocks, private greenspace, floods, and new builds at the output area (OA) level. Scripts are numbered in execution order.
 
 1_search_by_location.py: Aggregates weekly buying and letting search counts by search location and radius filter from the filtered (non-bot) Rightmove database, and saves one Parquet file per search type.
