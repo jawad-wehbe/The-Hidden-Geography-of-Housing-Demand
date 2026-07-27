@@ -11,6 +11,25 @@
 
 1_rightmove_descriptives.py: Produces the Rightmove summary statistics table used in the main paper. Results are assembled into a single table and exported as LaTeX (summary_table.tex).
 
+2_rank_rank_correlations_buying_searches.R: Collapses each weekly OA search panel to total buying searches per OA, then reports the rank-rank correlation matrix across the four user samples — all non-bot users, users who saved a property, users who contacted an estate agent, and users who did both — on the set of OAs present in all four. The all panel comes from nonbots_main_analysis; the other three are produced by the subfolders below.
+
+# 2.1 - Search panel samples
+
+Three subfolders: saved, contacted, and contacted_and_saved. Each contain the same three scripts as the main search panel construction in nonbots_main_analysis, differing only in which users are kept and where the output is written:
+
+| Subfolder | Users retained | Output |
+|---|---|---|
+| `saved` | Saved at least one property | `produced/nature/nonbots/saved/oa_weekly_search.parquet` |
+| `contacted` | Sent at least one email to an agent | `produced/nature/nonbots/contacted/oa_weekly_search.parquet` |
+| `contacted_and_saved` | Both saved a property and contacted an agent | `produced/nature/nonbots/contacted_and_saved/oa_weekly_search.parquet` |
+
+
+1_search_by_location.py: Aggregates weekly buying and letting search counts by search location and radius filter for the subfolder's user sample, and saves one Parquet file per search type.
+
+2_location_to_oa.py: Identifies all year–week combinations in that sample's search data, sequentially runs 2_location_to_oa_batch.py for each, and combines the weekly CSVs into the sample's OA-week search panel.
+
+2_location_to_oa_batch.py: For a single year–week, apportions the sample's location-level searches to output areas using the location-to-OA share crosswalk, and writes the weekly OA-level CSV.
+
 # 3- Nonbots Main Analysis
 This folder contains the full event-study pipeline linking Rightmove property searches (non-bot sessions) to construction supply shocks, private greenspace, floods, and new builds at the output area (OA) level. Scripts are numbered in execution order.
 
