@@ -1,7 +1,7 @@
 
 # 1- Maps
 
-1_main_report_la_maps.R: Produces the local authority gap maps in the main paper. One PNG per LA is saved as {la_code}_{la_name}_la_gap_per_km2.png.
+1_main_report_la_maps.R: Produces the local authority gap maps in the main paper. One image per LA is saved as {la_code}_{la_name}_la_gap_per_km2.png.
 
 2_gb_map_gap_rank.R: Creates the GB-wide gap rank map in the main report. Saved as gap_rank_map.png.
 
