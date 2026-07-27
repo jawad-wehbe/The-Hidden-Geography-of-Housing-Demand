@@ -20,7 +20,9 @@ Three subfolders: saved, contacted, and contacted_and_saved. Each contain the sa
 | Subfolder | Users retained | Output |
 |---|---|---|
 | `saved` | Saved at least one property | `produced/nature/nonbots/saved/oa_weekly_search.parquet` |
+
 | `contacted` | Sent at least one email to an agent | `produced/nature/nonbots/contacted/oa_weekly_search.parquet` |
+
 | `contacted_and_saved` | Both saved a property and contacted an agent | `produced/nature/nonbots/contacted_and_saved/oa_weekly_search.parquet` |
 
 
