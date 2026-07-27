@@ -64,3 +64,24 @@ This folder contains the full event-study pipeline linking Rightmove property se
 9_floods_reg.R: Identifies flooded output areas using the England and Wales recorded flood outlines and the OS address base, merges with weekly searches and transactions, builds the weekly and monthly flood event-study datasets, runs the regressions, and exports estimates and figures.
 
 10_newly_built_reg.R: Runs the new-build event study: combines the OA greenspace measure with newly built HMLR transactions and weekly searches, builds the weekly and monthly regression datasets, runs the event-study regressions, and exports estimates and figures.
+
+
+# 4- Robustness
+
+Replication of the main event studies on a restricted "serious user" sample: only Rightmove users who saved a property or contacted an agent at least once. The pipeline mirrors nonbots_main_analysis but writes to a separate saved_or_contacted output folder throughout, so the two sets of results can be compared directly.
+
+1_search_by_location.py: Aggregates weekly buying and letting search counts by search location and radius, restricted to users who saved a property or sent at least one email in the matching session table, and saves one Parquet file per search type.
+
+2_location_to_oa.py: Identifies all year–week combinations in the restricted search data, sequentially runs 2_location_to_oa_batch.py for each, and combines the weekly CSVs into the saved-or-contacted OA-week search panel.
+
+2_location_to_oa_batch.py: For a single year–week, apportions the restricted location-level searches to output areas using the location-to-OA share crosswalk, and writes the weekly OA-level CSV.
+
+3_search_to_cw.R: Assigns each OA in the restricted weekly panel to its LSOA, MSOA, LA, and TTWA, producing the geography-augmented panel used by the remaining robustness scripts.
+
+4_ed_control_dataset_construction.R / 4_sd_control_dataset_construction.R: Construct the control OA-week datasets for the end-date and start-date construction shocks respectively, excluding every output area intersecting an MSOA touched by a shocked OA. Both reuse the shock files built in nonbots_main_analysis (3_ed_shock_construction.R and 3_sd_shock_construction.R).
+
+5_common_sites_reg_and_plot.R: Runs the supply shock event study on the restricted sample, using the construction sites common to both the end-date and start-date pooled datasets and an event window capped at 44 weeks post treatment. Exports the tidy event-study estimates and the corresponding figures, and repeats the regression on a subsample of sites selected on pre-period search activity.
+
+6_searches_flood_event_study.R: Repeats the flood event study on the restricted sample — identifying flooded output areas from the England and Wales recorded flood outlines, building the weekly regression panel, estimating the event study on buying searches, and exporting the estimates and figure.
+
+7_searches_private_greenspace_event_study.R: Repeats the private greenspace event study on the restricted sample, using the OA greenspace measure computed in nonbots_main_analysis (8_a_private_greenspace_calculation.R), and exports the weekly estimates and figure.
