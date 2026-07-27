@@ -13,7 +13,7 @@
 
 2_rank_rank_correlations_buying_searches.R: Collapses each weekly OA search panel to total buying searches per OA, then reports the rank-rank correlation matrix across the four user samples — all non-bot users, users who saved a property, users who contacted an estate agent, and users who did both — on the set of OAs present in all four. The all panel comes from nonbots_main_analysis; the other three are produced by the subfolders below.
 
-# 2.1 - Search panel samples
+# 2.1 - Serious Searches Samples
 
 Three subfolders: saved, contacted, and contacted_and_saved. Each contain the same three scripts as the main search panel construction in nonbots_main_analysis, differing only in which users are kept and where the output is written:
 
