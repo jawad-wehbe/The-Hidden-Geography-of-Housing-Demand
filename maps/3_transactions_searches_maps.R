@@ -1,30 +1,3 @@
-###########################################################
-# Flood event maps — standalone
-#
-# Reads the saved weekly regression dataset from the floods
-# script, picks one flood shock x local authority (chosen
-# from pre/post search variation among treated OAs), and maps
-# how OA-level buying searches move around the flood week.
-#
-# Searches are expressed per km² (divided by OA area). For the
-# chosen shock x LA it builds, over weeks -1, 0, +1, +4, +5, +6:
-#
-#   LEVELS figures — change in searches per km² between two
-#     weeks (e.g. week 0 minus week -1, week +1 minus week 0,
-#     week +4/+5/+6 vs both week 0 and week -1), diverging
-#     red/blue scale centred at 0.
-#   LEVELS baseline map — raw searches per km² in week -1.
-#   LOG %-CHANGE figures — 100*(log wk_a - log wk_b) for the
-#     same week pairs, each on its own 1st/99th-percentile
-#     winsorized diverging scale.
-#
-# Each map overlays: treated (flood-exposed) OA boundaries in
-# purple, and one black dot per real HMLR transaction in the
-# relevant week. Transactions are geocoded from postcodes via
-# ONSPD, assigned to OAs spatially, and tagged to a rel_week by
-# joining their selling year-week to the event window.
-############################################################
-
 library(sf)
 library(dplyr)
 library(tidyr)

@@ -9,9 +9,6 @@
 #   demo run : that folder does not exist (another machine), or the
 #              environment variable HOUSING_DEMO is "1" (set by demo/run_demo.R)
 #              -> paths point inside demo/data/ of this repository
-#
-# Scripts never hard-code "~/Desktop/..." any more; they build paths from the
-# roots below with file.path(). Nothing else in the scripts changes.
 ##############################################################################
 
 library(here)
